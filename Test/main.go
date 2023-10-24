@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
-	"log"
 	"os"
 )
 
@@ -18,10 +18,10 @@ func init() {
 }
 
 type GroupieData struct {
-	Artists  string `json:"artists"`
-	Location string `json:"location"`
-	Dates    string `json:"dates"`
-	Relation string `json:"relation"`
+	Artists   string `json:"artists"`
+	Locations string `json:"locations"`
+	Dates     string `json:"dates"`
+	Relation  string `json:"relation"`
 }
 
 func main() {
@@ -43,10 +43,11 @@ func groupieHandler(w http.ResponseWriter, r *http.Request) {
 
 	fileData, err := http.Get("https://groupietrackers.herokuapp.com/api")
 
-    if err != nil {
-        fmt.Print(err.Error())
-        os.Exit(1)
-    }
+	if err != nil {
+		fmt.Print(err.Error())
+		os.Exit(1)
+	}
+	defer fileData.Body.Close()
 
 	// fileData := ""
 	data, err := ioutil.ReadAll(fileData.Body)
@@ -54,7 +55,7 @@ func groupieHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Error: ", err)
 	}
 
-	fmt.Println(string(data))
+	//fmt.Println(string(data))
 	// Parse JSON Data
 	var groupieData []GroupieData
 	err = json.Unmarshal(data, &groupieData)
@@ -85,7 +86,6 @@ func groupieHandler(w http.ResponseWriter, r *http.Request) {
 	// }
 }
 
-
 func processor(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		if r.URL.Path != "/" && r.URL.Path != "/groupie-tracker" {
@@ -98,7 +98,7 @@ func processor(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "405Error.html")
 	}
 	ha := r.FormValue("asciiBanner")
-	
+
 	d := struct {
 		Result string
 	}{
