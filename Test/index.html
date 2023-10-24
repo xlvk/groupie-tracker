@@ -1,25 +1,255 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Groupie Data</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js">
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+    <style>
+        body {
+            background-color: #030005;
+            color: #ffffff;
+
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gtitle {
+            /* font-size: 3.5rem; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 10vh;
+            width: 90vw;
+            font-family: "IBM Plex Mono", monospace, sans-serif;
+            background: linear-gradient(to right,
+                    #ffffff 30%,
+                    #000000 30%,
+                    #ffffff 70%,
+                    #000000 80%);
+            background-size: 50vh 50vh;
+            color: #000;
+            background-clip: text;
+            animation: tshine 0.5s linear infinite;
+            /* font-family: Helvetica, sans-serif; */
+
+            @keyframes tshine {
+                to {
+                    background-position: 80% center;
+                }
+            }
+
+            text-fill-color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+
+        header {
+            background-color: #333333;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #555555;
+        }
+
+        /* h1 {
+            font-size: 22px;
+            color: orange;
+        } */
+        @media only screen and (max-width: 2100px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 2000px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1900px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1800px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1700px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1600px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1500px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1400px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1300px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            .gtitle {
+                font-size: 3rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+            .gtitle {
+                font-size: 2.5rem;
+                /* color: green; */
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            .gtitle {
+                font-size: 2rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .gtitle {
+                font-size: 1.5rem;
+                /* color: red; */
+            }
+        }
+
+        main {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Groupie Data</h1>
-    <table>
-        <tr>
-            <th>Artists</th>
-            <th>Location</th>
-            <th>Dates</th>
-            <th>Relation</th>
-        </tr>
-        {{range .Groupies}}
-        <tr>
-            <td>{{.Artists}}</td>
-            <td>{{.Location}}</td>
-            <td>{{.Dates}}</td>
-            <td>{{.Relation}}</td>
-        </tr>
-        {{end}}
-    </table>
+    <header>
+        <div class="gtitle">Groupie Data</div>
+    </header>
+    <main>
+        <table>
+            <div>
+                <tr>
+                    <th>Artists</th>
+                    <th>Location</th>
+                    <th>Dates</th>
+                    <th>Relation</th>
+                </tr>
+                {{range .Groupies}}
+                <tr>
+                    <td>{{.Artists}}</td>
+                    <td>{{.Location}}</td>
+                    <td>{{.Dates}}</td>
+                    <td>{{.Relation}}</td>
+                </tr>
+                {{end}}
+            </div>
+
+        </table>
+        <div id="content">
+            {{range .Groupies}}
+            <div id="box"
+                style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover; ">
+                <a href="/submit?value={{ .ID }}">
+                    <div id="name">
+                        {{ .Artists}}
+                    </div>
+                </a>
+            </div>
+            {{end}}
+        </div>
+    </main>
+
 </body>
+
 </html>
