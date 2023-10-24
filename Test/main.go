@@ -17,11 +17,36 @@ func init() {
 	sere = template.Must(template.ParseGlob("index.html"))
 }
 
+// type GroupieData struct {
+// 	Artists   string `json:"artists"`
+// 	Locations string `json:"locations"`
+// 	Dates     string `json:"dates"`
+// 	Relation  string `json:"relation"`
+// }
+
 type GroupieData struct {
 	Artists   string `json:"artists"`
 	Locations string `json:"locations"`
 	Dates     string `json:"dates"`
 	Relation  string `json:"relation"`
+}
+
+type ArtistsAPI struct {
+	ID           int      `json:"id"`
+	Image        string   `json:"image"`
+	Name         string   `json:"name"`
+	Members      []string `json:"members"`
+	CreationDate int      `json:"creationDate"`
+	FirstAlbum   string   `json:"firstAlbum"`
+	Locations    string   `json:"locations"`
+	ConcertDates string   `json:"concertDates"`
+	Relations    string   `json:"relations"`
+}
+
+type LocationsAPI struct {
+	ID        int      `json:"id"`
+	Locations []string `json:"locations"`
+	Dates     string   `json:"dates"`
 }
 
 func main() {
