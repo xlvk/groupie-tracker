@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Groupie Data</title>
+</head>
+<body>
+    <h1>Groupie Data</h1>
+    <table>
+        <tr>
+            <th>Artists</th>
+            <th>Location</th>
+            <th>Dates</th>
+            <th>Relation</th>
+        </tr>
+        {{range .Groupies}}
+        <tr>
+            <td>{{.Artists}}</td>
+            <td>{{.Location}}</td>
+            <td>{{.Dates}}</td>
+            <td>{{.Relation}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>
