@@ -14,6 +14,10 @@
         });
     </script>
     <style>
+        #help{
+            height: 400px;
+            width: 400px;
+        }
         body {
             background-color: #030005;
             color: #ffffff;
@@ -82,6 +86,10 @@
         nav ul li a:hover {
             background-color: #555555;
         }
+
+        .content {
+            width: 400px;
+height: 400px;        }
 
         /* h1 {
             font-size: 22px;
@@ -217,7 +225,7 @@
         <div class="gtitle">Groupie Data</div>
     </header>
     <main>
-        <table>
+        <!-- <table>
             <div>
                 <tr>
                     <th>Artists</th>
@@ -225,31 +233,31 @@
                     <th>Dates</th>
                     <th>Relation</th>
                 </tr>
-                {{range .Groupies}}
+                {{range .Groupie}}
                 <tr>
-                    <td>{{.Artists}}</td>
-                    <td>{{.Location}}</td>
-                    <td>{{.Dates}}</td>
-                    <td>{{.Relation}}</td>
+                    <td>{{.Name}}</td>
+                    <td>{{.Locations}}</td>
+                    <td>{{.CreationDate}}</td>
+                    <td>{{.Relations}}</td>
                 </tr>
                 {{end}}
             </div>
 
-        </table>
+        </table> -->
+        <br>
         <div id="content">
-            {{range .Groupies}}
-            <div id="box"
+            {{range .Groupie}}
+            <div id="box" class="help"
                 style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover; ">
                 <a href="/submit?value={{ .ID }}">
                     <div id="name">
-                        {{ .Artists}}
+                        {{ .Name}}
                     </div>
                 </a>
             </div>
             {{end}}
         </div>
     </main>
-
 </body>
 
 </html>
