@@ -66,7 +66,7 @@ func main() {
 func groupieHandler(w http.ResponseWriter, r *http.Request) {
 	// Locate and Read JSON File
 
-	fileData, err := http.Get("https://groupietrackers.herokuapp.com/api")
+	fileData, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 
 	if err != nil {
 		fmt.Print(err.Error())
@@ -82,15 +82,19 @@ func groupieHandler(w http.ResponseWriter, r *http.Request) {
 
 	//fmt.Println(string(data))
 	// Parse JSON Data
-	var groupieData []GroupieData
+	var groupieData []ArtistsAPI
 	err = json.Unmarshal(data, &groupieData)
 	if err != nil {
 		fmt.Println("Error: ", err)
 	}
+	fmt.Print(groupieData[0].Members)
+	fmt.Print(groupieData[0].Name)
+	fmt.Print(groupieData[0].Locations)
+	fmt.Print(groupieData[0].Relations)
 
 	// Prepare Data For HTML
 	type DataView struct {
-		Groupie []GroupieData
+		Groupie []ArtistsAPI
 	}
 	viewData := DataView{
 		Groupie: groupieData,
