@@ -14,10 +14,11 @@
         });
     </script>
     <style>
-        #help{
+        /* #help {
             height: 400px;
             width: 400px;
-        }
+        } */
+
         body {
             background-color: #030005;
             color: #ffffff;
@@ -30,8 +31,8 @@
 
         main {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            /* align-items: center; */
+            /* justify-content: center; */
         }
 
         .gtitle {
@@ -89,7 +90,19 @@
 
         .content {
             width: 400px;
-height: 400px;        }
+            height: 400px;
+        }
+
+        .slay {
+            height: 240px;
+            display: flex;
+            flex-direction: row;
+            font-family: "IBM Plex Mono", monospace, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgb(0, 0, 0);
+            text-shadow: -1px -1px 0px #8400ff, 1px 1px 0px #ff005a;
+        }
 
         /* h1 {
             font-size: 22px;
@@ -250,7 +263,7 @@ height: 400px;        }
             <div id="box" class="help"
                 style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover; ">
                 <a href="/submit?value={{ .ID }}">
-                    <div id="name">
+                    <div id="name" class="slay">
                         {{ .Name}}
                     </div>
                 </a>
