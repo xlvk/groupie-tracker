@@ -257,8 +257,24 @@
             </div>
 
         </table> -->
+        <div>
+            <a href="aboutme.html">About</a>
+            <br>
+        </div>
         <br>
-        <div id="content">
+        <div id="content" class="grid-container">
+            {{range .Groupie}}
+            <div class="box help"
+                style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover; ">
+                <a href="/submit?value={{ .ID }}">
+                    <div class="name slay">
+                        {{ .Name}}
+                    </div>
+                </a>
+            </div>
+            {{end}}
+        </div>
+        <!-- <div id="content">
             {{range .Groupie}}
             <div id="box" class="help"
                 style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover; ">
@@ -269,7 +285,7 @@
                 </a>
             </div>
             {{end}}
-        </div>
+        </div> -->
     </main>
 </body>
 
