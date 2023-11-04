@@ -91,8 +91,6 @@
         .content {
             width: 400px;
             height: 400px;
-            display: flex;
-            flex-wrap: wrap;
         }
 
         .slay {
@@ -102,16 +100,67 @@
             font-family: "IBM Plex Mono", monospace, sans-serif;
             font-size: 16px;
             font-weight: 600;
-            color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
             text-shadow: -1px -1px 0px #8400ff, 1px 1px 0px #ff005a;
-            flex-grow: 1;
+            /* display: block;
+            position: relative; */
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            height: 200px;
+            width: 200px;
+            /* flex-grow: 1;
+            flex-direction: row; */
             flex-basis: 200;
+        }
+
+        .name {
+            display: block;
+            position: relative;
+            /* Add styling for the name element */
         }
 
         /* h1 {
             font-size: 22px;
             color: orange;
         } */
+
+        @media only screen and (max-width: 2100px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 2400px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 2300px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
+        @media only screen and (max-width: 2200px) {
+            .gtitle {
+                font-size: 3.5rem;
+                /* color: blue; */
+            }
+        }
+
         @media only screen and (max-width: 2100px) {
             .gtitle {
                 font-size: 3.5rem;
@@ -234,86 +283,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        .container {
-            position: relative;
-            font-family: sans-serif;
-        }
-
-        .container::before,
-        .container::after {
-            content: "";
-            background-color: #fab5704c;
-            position: absolute;
-        }
-
-        .container::before {
-            border-radius: 50%;
-            width: 6rem;
-            height: 6rem;
-            top: 30%;
-            right: 7%;
-        }
-
-        .container::after {
-            content: "";
-            position: absolute;
-            height: 3rem;
-            top: 8%;
-            right: 5%;
-            border: 1px solid;
-        }
-
-        .container .box {
-            width: 11.875em;
-            height: 15.875em;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.074);
-            border: 1px solid rgba(255, 255, 255, 0.222);
-            -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-            border-radius: .7rem;
-            transition: all ease .3s;
-        }
-
-        .container .box {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .container .box .title {
-            font-size: 2rem;
-            font-weight: 500;
-            letter-spacing: .1em
-        }
-
-        .container .box div strong {
-            display: block;
-            margin-bottom: .5rem;
-        }
-
-        .container .box div p {
-            margin: 0;
-            font-size: .9em;
-            font-weight: 300;
-            letter-spacing: .1em;
-        }
-
-        .container .box div span {
-            font-size: .7rem;
-            font-weight: 300;
-        }
-
-        .container .box div span:nth-child(3) {
-            font-weight: 500;
-            margin-right: .2rem;
-        }
-
-        .container .box:hover {
-            box-shadow: 0px 0px 20px 1px #ffbb763f;
-            border: 1px solid rgba(255, 255, 255, 0.454);
-        }
     </style>
 </head>
 
@@ -348,10 +317,10 @@
         <br>
         <div id="content" class="grid-container">
             {{range .Groupie}}
-            <div class="box help" 
+            <div class="box help"
                 style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover; ">
                 <a href="/submit?value={{ .ID }}">
-                    <div class="slay"  class="container">
+                    <div class="name slay">
                         {{ .Name}}
                     </div>
                 </a>

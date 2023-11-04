@@ -52,7 +52,8 @@ type LocationsAPI struct {
 func main() {
 	http.HandleFunc("/", groupieHandler)
 	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css/"))))
-	http.HandleFunc("/groupie-tracker", processor)
+	// http.HandleFunc("/groupie-tracker", processor)
+	http.HandleFunc("/aboutme.html", aboutMe)
 	u, err := url.Parse("http://localhost:2003")
 	if err != nil {
 		fmt.Println(err)
@@ -115,26 +116,37 @@ func groupieHandler(w http.ResponseWriter, r *http.Request) {
 	// }
 }
 
-func processor(w http.ResponseWriter, r *http.Request) {
-	if r.Method != "POST" {
-		if r.URL.Path != "/" && r.URL.Path != "/groupie-tracker" {
-			// w.Header().Set("Content-Type", "html/text")
-			w.WriteHeader(http.StatusNotFound)
-			http.ServeFile(w, r, "404Error.html")
-		}
-		w.Header().Set("Content-Type", "text/html")
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		http.ServeFile(w, r, "405Error.html")
+// func processor(w http.ResponseWriter, r *http.Request) {
+// 	if r.Method != "POST" {
+// 		if r.URL.Path != "/" && r.URL.Path != "/groupie-tracker" {
+// 			// w.Header().Set("Content-Type", "html/text")
+// 			w.WriteHeader(http.StatusNotFound)
+// 			http.ServeFile(w, r, "404Error.html")
+// 		}
+// 		w.Header().Set("Content-Type", "text/html")
+// 		w.WriteHeader(http.StatusMethodNotAllowed)
+// 		http.ServeFile(w, r, "405Error.html")
+// 	}
+// 	ha := r.FormValue("asciiBanner")
+
+// 	d := struct {
+// 		Result string
+// 	}{
+// 		Result: ha,
+// 	}
+// 	tmp, _ := template.ParseFiles("processor.html")
+
+// 	tmp.Execute(w, d)
+
+// }
+
+func aboutMe(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/aboutme.html" {
+		w.WriteHeader(http.StatusNotFound)
+		http.ServeFile(w, r, "template/404Error.html")
+
 	}
-	ha := r.FormValue("asciiBanner")
-
-	d := struct {
-		Result string
-	}{
-		Result: ha,
-	}
-	tmp, _ := template.ParseFiles("processor.html")
-
-	tmp.Execute(w, d)
-
+	// w.Header().Set("Content-Type", "text/html")
+	// w.WriteHeader(http.StatusMethodNotAllowed)
+	http.ServeFile(w, r, "aboutme.html")
 }
