@@ -9,6 +9,8 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
+	"strconv"
 )
 
 var sere *template.Template
@@ -54,6 +56,8 @@ func main() {
 	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css/"))))
 	// http.HandleFunc("/groupie-tracker", processor)
 	http.HandleFunc("/aboutme.html", aboutMe)
+	// submit?value=2
+	http.HandleFunc("/submit?value=", Submit)
 	u, err := url.Parse("http://localhost:2003")
 	if err != nil {
 		fmt.Println(err)
@@ -78,7 +82,7 @@ func groupieHandler(w http.ResponseWriter, r *http.Request) {
 	// fileData := ""
 	data, err := ioutil.ReadAll(fileData.Body)
 	if err != nil {
-		fmt.Println("Error: ", err)
+		fmt.Println("Error1: ", err)
 	}
 
 	//fmt.Println(string(data))
@@ -86,12 +90,12 @@ func groupieHandler(w http.ResponseWriter, r *http.Request) {
 	var groupieData []ArtistsAPI
 	err = json.Unmarshal(data, &groupieData)
 	if err != nil {
-		fmt.Println("Error: ", err)
+		fmt.Println("Error2: ", err)
 	}
-	fmt.Print(groupieData[0].Members)
-	fmt.Print(groupieData[0].Name)
-	fmt.Print(groupieData[0].Locations)
-	fmt.Print(groupieData[0].Relations)
+	// fmt.Print(groupieData[0].Members)
+	// fmt.Print(groupieData[0].Name)
+	// fmt.Print(groupieData[0].Locations)
+	// fmt.Print(groupieData[0].Relations)
 
 	// Prepare Data For HTML
 	type DataView struct {
@@ -107,13 +111,14 @@ func groupieHandler(w http.ResponseWriter, r *http.Request) {
 	// Execute HTML with Data
 	err = pageView.Execute(w, viewData)
 	if err != nil {
-		fmt.Println("Error: ", err)
+		fmt.Println("Error3: ", err)
 	}
 
 	// Print Data on Terminal
 	// for _, group := range groupieData {
 	// 	fmt.Println(group.Artists, group.Dates, group.Location, group.Relation)
 	// }
+	    //   <form action="/ascii-art" method="POST">
 }
 
 // func processor(w http.ResponseWriter, r *http.Request) {
@@ -146,7 +151,20 @@ func aboutMe(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "template/404Error.html")
 
 	}
-	// w.Header().Set("Content-Type", "text/html")
-	// w.WriteHeader(http.StatusMethodNotAllowed)
 	http.ServeFile(w, r, "aboutme.html")
+}
+
+func Submit(w http.ResponseWriter, r *http.Request) {
+	StrNum := strings.TrimPrefix( r.URL.Path , "/submit?value=")
+	
+	num, err := strconv.Atoi(StrNum)
+	if err == nil {
+		fmt.Printf("%T, %v", num, num)
+	}
+
+	if num < 1 || num > 52 {
+		w.WriteHeader(http.StatusNotFound)
+		http.ServeFile(w, r, "template/404Error.html")
+	}
+	http.ServeFile(w, r, "artistpage.html")
 }

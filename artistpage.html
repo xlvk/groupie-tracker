@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Artist Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="pics/logo.png" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+</head>
+
+<body style="color:White; ">
+    <h1 style="color:#000000; text-align:center; font-family: 'Dela Gothic One', cursive;">G R O U P I E - T R A C K E R
+    </h1>
+    <!-- <div class="bandCard"> -->
+    <div class="bandImage">
+        <image src="{{.Image}}" alt="{{.Name}}"></image>
+        <!-- </div> -->
+        <br>
+        <h1 id="artistname">{{.Name}}</h1>
+    </div>
+    <div class="memberList">
+        <h2>Members:</h2>
+        <ul style="padding-left:8px;">
+            {{range .Members}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </div>
+    <div class="n">
+        <p style="position: relative;left:5%; font-size: 20px; display: inline-block;">
+            <b>Creation date:</b> {{.CreationDate}} <br><br> <b>First album release:</b> {{.FirstAlbum}}
+        </p>
+    </div>
+    <div class="relations">
+        <div>
+            <h2 style="text-align: left;">Concerts:</h2>
+        </div>
+        <!-- <p style="text-align: left;"> -->
+        <ul style="text-align:left; text-indent: -4px;">
+            {{range $i, $v := .Relations}}
+            <li>{{$i}}: {{range $m := $v}}{{.}} {{end}}</li>
+            {{end}}
+        </ul>
+    </div>
+
+</body>
