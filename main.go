@@ -58,6 +58,9 @@ func main() {
 	http.HandleFunc("/aboutme.html", aboutMe)
 	// submit?value=2
 	http.HandleFunc("/submit?value=", Submit)
+	// http.Handle("/pics/", http.FileServer(http.Dir("templates")))
+
+	// http.Handle("/css/", http.FileServer(http.Dir("templates")))
 	u, err := url.Parse("http://localhost:2003")
 	if err != nil {
 		fmt.Println(err)
