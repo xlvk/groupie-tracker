@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>G R O U P I E D A T A</title>
+    <title>Groupie Data</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js">
         // Dark mode toggle functionality
@@ -139,9 +139,9 @@
             /* Add styling for the name element */
         }
 
-        /* h1 {
+        /* .h1 {
             font-size: 22px;
-            color: orange;
+            /* color: orange;
         } */
 
         @media only screen and (max-width: 2100px) {
@@ -361,11 +361,12 @@
 
 <body>
     <header>
-        <div class="gtitle">Groupie Data</div>
+        <div class="gtitle" style="text-align:center; font-family: 'Dela Gothic One', cursive;">Groupie Data</div>
         <div class="my-body">
             <div class="darkThemeBtn">
                 <input id="darkmode-toggle" type="checkbox">
-                <label for="darkmode-toggle" style="margin-bottom: auto;border-bottom-width: px;bottom: 10px;left: 20px;">
+                <label for="darkmode-toggle"
+                    style="margin-bottom: auto;border-bottom-width: px;bottom: 10px;left: 20px;">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="sun">
                         <g transform="translate(0 512) scale(.1 -.1)">
                             <path
@@ -434,18 +435,19 @@
             <br>
         </div>
         <br>
-        <form action="/submit?value=" method="POST">
+        <form action="/id=" method="POST">
             <div id="content" class="grid-container">
                 {{range .Groupie}}
-                <div class="box help"
-                    style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover; ">
-                    <a href="/submit?value={{ .ID }}">
-                        <div class="name slay">
-                            {{ .Name}}
-                        </div>
-                    </a>
-                </div>
-                {{end}}
+                <a href="/artist?id={{.ID}}" name="artist" value="{{.ID}}" method="POST" alt="{{.Name}}">
+                    <div class="box help"
+                        style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover; ">
+                        <!-- <a href="/submit?value={{ .ID }}"> -->
+                            <div class="name slay">
+                                <h1>{{ .Name}}</h1>
+                            </div>
+                        </a>
+                    </div>
+                    {{end}}
             </div>
             <!-- <div id="content">
             {{range .Groupie}}

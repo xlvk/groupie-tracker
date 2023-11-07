@@ -2,11 +2,12 @@ package main
 
 import (
 	"net/http"
-	"html/template"
+	// "html/template"
 )
 
-func ErrorPage(w http.ResponseWriter) {
+func ErrorPage(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusInternalServerError)
-	template.Must(template.ParseGlob("template/500Error.html"))
-	sere.ExecuteTemplate(w, "template/500Error.html", nil)
+	http.ServeFile(w, r, "template/500Error.html")
+	// template.Must(template.ParseGlob("template/500Error.html"))
+	// sere.ExecuteTemplate(w, "template/500Error.html", nil)
 }

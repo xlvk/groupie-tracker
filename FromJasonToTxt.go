@@ -17,13 +17,13 @@ type Data struct {
 	// ...
 }
 
-func FromJasonToTxt(w http.ResponseWriter) {
+func FromJasonToTxt(w http.ResponseWriter, r *http.Request) {
 
 	// Make an HTTP GET request to fetch the JSON data
 	resp, err := http.Get("https://groupietrackers.herokuapp.com/api")
 	if err != nil {
 		fmt.Println("Error fetching JSON data:", err)
-		ErrorPage(w)
+		ErrorPage(w, r)
 		return
 	}
 	defer resp.Body.Close()
@@ -32,7 +32,7 @@ func FromJasonToTxt(w http.ResponseWriter) {
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Println("Error reading response body:", err)
-		ErrorPage(w)
+		ErrorPage(w, r)
 		return
 	}
 
@@ -43,7 +43,7 @@ func FromJasonToTxt(w http.ResponseWriter) {
 	err = json.Unmarshal(body, &jsonData)
 	if err != nil {
 		fmt.Println("Error unmarshaling JSON data:", err)
-		ErrorPage(w)
+		ErrorPage(w, r)
 		return
 	}
 
@@ -51,7 +51,7 @@ func FromJasonToTxt(w http.ResponseWriter) {
 	jsonBytes, err := json.Marshal(jsonData)
 	if err != nil {
 		fmt.Println("Error converting to JSON:", err)
-		ErrorPage(w)
+		ErrorPage(w, r)
 		return
 	}
 
@@ -59,7 +59,7 @@ func FromJasonToTxt(w http.ResponseWriter) {
 	jsonFile, err := os.Create("../data/data.txt")
 	if err != nil {
 		fmt.Println("Error creating JSON file:", err)
-		ErrorPage(w)
+		ErrorPage(w, r)
 		return
 	}
 	defer jsonFile.Close()
@@ -67,7 +67,7 @@ func FromJasonToTxt(w http.ResponseWriter) {
 	_, err = jsonFile.Write(jsonBytes)
 	if err != nil {
 		fmt.Println("Error writing JSON data:", err)
-		ErrorPage(w)
+		ErrorPage(w, r)
 		return
 	}
 
