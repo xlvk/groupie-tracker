@@ -10,7 +10,7 @@ import (
 	"net/url"
 	// "os"
 	"strconv"
-	"strings"
+	// "strings"
 )
 
 var sere *template.Template
@@ -118,20 +118,20 @@ func aboutMe(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "aboutme.html")
 }
 
-func Submit(w http.ResponseWriter, r *http.Request) {
-	StrNum := strings.TrimPrefix(r.URL.Path, "/submit?value=")
+// func Submit(w http.ResponseWriter, r *http.Request) {
+// 	StrNum := strings.TrimPrefix(r.URL.Path, "/submit?value=")
 
-	num, err := strconv.Atoi(StrNum)
-	if err == nil {
-		fmt.Printf("%T, %v", num, num)
-	}
+// 	num, err := strconv.Atoi(StrNum)
+// 	if err == nil {
+// 		fmt.Printf("%T, %v", num, num)
+// 	}
 
-	if num < 1 || num > 52 {
-		w.WriteHeader(http.StatusNotFound)
-		http.ServeFile(w, r, "template/404Error.html")
-	}
-	http.ServeFile(w, r, "artistpage.html")
-}
+// 	if num < 1 || num > 52 {
+// 		w.WriteHeader(http.StatusNotFound)
+// 		http.ServeFile(w, r, "template/404Error.html")
+// 	}
+// 	http.ServeFile(w, r, "artistpage.html")
+// }
 
 func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	groupieData, err := GetData(w, r)
@@ -200,6 +200,7 @@ func GetRelations(id int, w http.ResponseWriter, r *http.Request) (string, error
 	if err != nil {
 		fmt.Println("Error2: ", err)
 		ErrorPage(w, r)
+		// return  err
 		// return
 	}
 	// fmt.Print(groupieData[0].Members)""
@@ -236,8 +237,9 @@ func GetData(w http.ResponseWriter, r *http.Request) ([]ArtistsAPI, error) {
 	fileData, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 
 	if err != nil {
-		fmt.Print(err.Error())
-		ErrorPage(w, r)
+		// fmt.Print(err.Error())
+		// ErrorPage(w, r)
+		return nil, err
 		// return
 	}
 	defer fileData.Body.Close()
@@ -245,15 +247,17 @@ func GetData(w http.ResponseWriter, r *http.Request) ([]ArtistsAPI, error) {
 	// fileData := ""
 	data2, err := ioutil.ReadAll(fileData.Body)
 	if err != nil {
-		fmt.Println("Error1: ", err)
-		ErrorPage(w, r)
+		// fmt.Println("Error1: ", err)
+		// ErrorPage(w, r)
+		return nil, err
 		// return
 	}
 	var groupieData []ArtistsAPI
 	err = json.Unmarshal(data2, &groupieData)
 	if err != nil {
-		fmt.Println("Error2: ", err)
-		ErrorPage(w, r)
+		// fmt.Println("Error2: ", err)
+		// ErrorPage(w, r)
+		return nil, err
 		// return
 	}
 	// fmt.Print(groupieData[0].Members)""
