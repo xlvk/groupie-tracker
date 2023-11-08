@@ -8,19 +8,857 @@
     <link rel="shortcut icon" type="image/png" href="pics/logo.png" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <style>
+        element.style {}
+
+        .u-section-1 .u-image-1 {
+            width: 476px;
+            height: 464px;
+            margin: 0 auto;
+        }
+
+        img.u-image,
+        .u-video-poster {
+            overflow: hidden;
+        }
+
+        img.u-image,
+        .u-video-poster {
+            overflow: hidden;
+        }
+
+        .u-overlap.u-overlap-transparent .u-header,
+        .u-image,
+        .u-gradient {
+            color: rgb(191, 191, 191);
+        }
+
+        .u-overlap.u-overlap-transparent .u-header,
+        .u-image,
+        .u-gradient {
+            color: var(--white-contrast);
+        }
+
+        .u-radius-50 {
+            --border-radius: 50px;
+        }
+
+        [class*="-radius-"],
+        [class*="-radius-"]:before,
+        [class*="-radius-"] .u-background-effect,
+        [class*="-radius-"]:not(.u-hover-box)>.u-container-layout {
+            border-radius: var(--border-top-left-radius, var(--border-radius, 0)) var(--border-top-right-radius, var(--border-radius, 0)) var(--border-bottom-right-radius, var(--border-radius, 0)) var(--border-bottom-left-radius, var(--border-radius, 0)) !important;
+        }
+
+        .u-valign-middle>*,
+        .u-valign-top>*,
+        .u-valign-bottom>* {
+            flex-shrink: 0;
+        }
+
+        .u-inner-container-layout,
+        .u-inner-container-layout>*,
+        .u-group-elements,
+        .u-group-elements>*,
+        .u-container-layout>* {
+            position: relative;
+        }
+
+        .u-image,
+        .u-background-effect-image,
+        .u-video-poster {
+            object-fit: cover;
+            display: block;
+            vertical-align: middle;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+
+        .u-overlap.u-overlap-transparent .u-header,
+        .u-image,
+        .u-gradient {
+            color: var(--white-contrast);
+        }
+
+        .u-radius-50 {
+            --border-radius: 50px;
+        }
+
+        [class*="-radius-"],
+        [class*="-radius-"]:before,
+        [class*="-radius-"] .u-background-effect,
+        [class*="-radius-"]:not(.u-hover-box)>.u-container-layout {
+            border-radius: var(--border-top-left-radius, var(--border-radius, 0)) var(--border-top-right-radius, var(--border-radius, 0)) var(--border-bottom-right-radius, var(--border-radius, 0)) var(--border-bottom-left-radius, var(--border-radius, 0)) !important;
+        }
+
+        .u-valign-middle>*,
+        .u-valign-top>*,
+        .u-valign-bottom>* {
+            flex-shrink: 0;
+        }
+
+        .u-inner-container-layout,
+        .u-inner-container-layout>*,
+        .u-group-elements,
+        .u-group-elements>*,
+        .u-container-layout>* {
+            position: relative;
+        }
+
+        .u-image,
+        .u-background-effect-image,
+        .u-video-poster {
+            object-fit: cover;
+            display: block;
+            vertical-align: middle;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+
+        img {
+            border-style: none;
+        }
+
+        img {
+            border-style: none;
+        }
+
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-y: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-via-position: ;
+            --tw-ordinal: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: hsla(0, 0%, 100%, 1);
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-brightness: ;
+            --tw-grayscale: ;
+            --tw-invert: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-saturate: ;
+            --tw-translate-x-night-eye: 0;
+            --tw-translate-y-night-eye: 0;
+            --tw-rotate-night-eye: 0;
+            --tw-skew-x-night-eye: 0;
+            --tw-skew-y-night-eye: 0;
+            --tw-scale-x-night-eye: 1;
+            --tw-scale-y-night-eye: 1;
+            --tw-ring-offset-color-night-eye: hsla(240, 8%, 12%, 1);
+            --tw-ring-color-night-eye: rgb(59 130 246 / 0.5);
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        user agent stylesheet img {
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
+
+        .u-tabs:not([class*="u-align-"]),
+        .u-accordion:not([class*="u-align-"]),
+        .u-repeater-item:not([class*="u-align-"]),
+        .u-container-style:not([class*="u-align-"]) {
+            text-align: left;
+        }
+
+        .u-tabs:not([class*="u-align-"]),
+        .u-accordion:not([class*="u-align-"]),
+        .u-repeater-item:not([class*="u-align-"]),
+        .u-container-style:not([class*="u-align-"]) {
+            text-align: left;
+        }
+
+        .u-sheet:not(.u-image):not(.u-video)>* {
+            pointer-events: auto;
+            pointer-events: initial;
+        }
+
+        .u-sheet:not(.u-image):not(.u-video)>* {
+            pointer-events: auto;
+            pointer-events: initial;
+        }
+
+        .u-sheet:not(.u-image):not(.u-video) {
+            pointer-events: none;
+        }
+
+        .u-sheet:not(.u-image):not(.u-video) {
+            pointer-events: none;
+        }
+
+        .u-body {
+            --theme-sheet-width-xl: 1140px;
+            --theme-sheet-width-lg: 940px;
+            --theme-sheet-width-md: 720px;
+            --theme-sheet-width-sm: 540px;
+            --theme-sheet-width-xs: 340px;
+        }
+
+        .u-body {
+            color: rgb(191, 191, 191);
+            background-color: rgb(28, 28, 33);
+            --effect-scale: 1.1;
+            --effect-scale-night-eye: 1.1;
+        }
+
+        .u-body {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .u-body {
+            color: var(--bg-contrast);
+            background-color: var(--bg-color-night-eye);
+            --effect-scale: 1.1;
+            --effect-scale-night-eye: 1.1;
+        }
+
+        .u-body {
+            font-family: var(--text-font);
+        }
+
+        .u-body {
+            --animation-fade_in-opacity: 0;
+            --animation-fade_in_up-opacity: 0;
+            --animation-fade_in_left-opacity: 0;
+            --animation-fade_in_right-opacity: 0;
+            --animation-fade_in_down-opacity: 0;
+            --animation-fade_in_up_big-opacity: 0;
+            --animation-fade_in_left_big-opacity: 0;
+            --animation-fade_in_right_big-opacity: 0;
+            --animation-fade_in_down_big-opacity: 0;
+            --animation-fade_out-opacity: 0;
+            --animation-fade_out_up-opacity: 0;
+            --animation-fade_out_left-opacity: 0;
+            --animation-fade_out_right-opacity: 0;
+            --animation-fade_out_down-opacity: 0;
+            --animation-fade_out_up_big-opacity: 0;
+            --animation-fade_out_left_big-opacity: 0;
+            --animation-fade_out_right_big-opacity: 0;
+            --animation-fade_out_down_big-opacity: 0;
+            --animation-rotate_in-rotate: -200deg;
+            --animation-rotate_in_down_left-rotate: -45deg;
+            --animation-rotate_in_down_right-rotate: 45deg;
+            --animation-rotate_in_up_left-rotate: 45deg;
+            --animation-rotate_in_up_right-rotate: -90deg;
+            --animation-rotate_out-rotate: 200deg;
+            --animation-rotate_out_down_left-rotate: 45deg;
+            --animation-rotate_out_down_right-rotate: -45deg;
+            --animation-rotate_out_up_left-rotate: -45deg;
+            --animation-rotate_out_up_right-rotate: 90deg;
+            --animation-roll_in-rotate: -120deg;
+            --animation-roll_in-translate_x: -100%;
+            --animation-roll_out-rotate: 120deg;
+            --animation-roll_out-translate_x: 100%;
+            --animation-zoom_in-scale: 0.3;
+            --animation-zoom_in_down-scale: 0.475;
+            --animation-zoom_in_down-translate_y: 60px;
+            --animation-zoom_in_up-scale: 0.475;
+            --animation-zoom_in_up-translate_y: -60px;
+            --animation-zoom_in_left-scale: 0.475;
+            --animation-zoom_in_left-translate_x: 10px;
+            --animation-zoom_in_right-scale: 0.475;
+            --animation-zoom_in_right-translate_x: -10px;
+            --animation-zoom_out-scale: 0.3;
+            --animation-zoom_out_down-scale: 0.475;
+            --animation-zoom_out_down-translate_y: -60px;
+            --animation-zoom_out_up-scale: 0.475;
+            --animation-zoom_out_up-translate_y: 60px;
+            --animation-zoom_out_left-scale: 0.475;
+            --animation-zoom_out_left-translate_x: 42px;
+            --animation-zoom_out_right-scale: 0.475;
+            --animation-zoom_out_right-translate_x: -42px;
+            --animation-slide_in_down-translate_y: -100%;
+            --animation-slide_in_up-translate_y: 100%;
+            --animation-slide_in_left-translate_x: -100%;
+            --animation-slide_in_right-translate_x: 100%;
+            --animation-slide_out_down-translate_y: 100%;
+            --animation-slide_out_up-translate_y: -100%;
+            --animation-slide_out_left-translate_x: -100%;
+            --animation-slide_out_right-translate_x: 100%;
+            --animation-custom_in-translate_x: 0px;
+            --animation-custom_in-translate_y: 0px;
+            --animation-custom_in-scale: 1;
+            --animation-custom_in-rotate: 0deg;
+            --animation-custom_in-opacity: 0;
+            --animation-custom_in-translate_x-end: 0;
+            --animation-custom_in-translate_y-end: 0;
+            --animation-custom_in-scale-end: 1;
+            --animation-fade_in-opacity-night-eye: 0;
+            --animation-fade_in_up-opacity-night-eye: 0;
+            --animation-fade_in_left-opacity-night-eye: 0;
+            --animation-fade_in_right-opacity-night-eye: 0;
+            --animation-fade_in_down-opacity-night-eye: 0;
+            --animation-fade_in_up_big-opacity-night-eye: 0;
+            --animation-fade_in_left_big-opacity-night-eye: 0;
+            --animation-fade_in_right_big-opacity-night-eye: 0;
+            --animation-fade_in_down_big-opacity-night-eye: 0;
+            --animation-fade_out-opacity-night-eye: 0;
+            --animation-fade_out_up-opacity-night-eye: 0;
+            --animation-fade_out_left-opacity-night-eye: 0;
+            --animation-fade_out_right-opacity-night-eye: 0;
+            --animation-fade_out_down-opacity-night-eye: 0;
+            --animation-fade_out_up_big-opacity-night-eye: 0;
+            --animation-fade_out_left_big-opacity-night-eye: 0;
+            --animation-fade_out_right_big-opacity-night-eye: 0;
+            --animation-fade_out_down_big-opacity-night-eye: 0;
+            --animation-rotate_in-rotate-night-eye: -200deg;
+            --animation-rotate_in_down_left-rotate-night-eye: -45deg;
+            --animation-rotate_in_down_right-rotate-night-eye: 45deg;
+            --animation-rotate_in_up_left-rotate-night-eye: 45deg;
+            --animation-rotate_in_up_right-rotate-night-eye: -90deg;
+            --animation-rotate_out-rotate-night-eye: 200deg;
+            --animation-rotate_out_down_left-rotate-night-eye: 45deg;
+            --animation-rotate_out_down_right-rotate-night-eye: -45deg;
+            --animation-rotate_out_up_left-rotate-night-eye: -45deg;
+            --animation-rotate_out_up_right-rotate-night-eye: 90deg;
+            --animation-roll_in-rotate-night-eye: -120deg;
+            --animation-roll_in-translate_x-night-eye: -100%;
+            --animation-roll_out-rotate-night-eye: 120deg;
+            --animation-roll_out-translate_x-night-eye: 100%;
+            --animation-zoom_in-scale-night-eye: 0.3;
+            --animation-zoom_in_down-scale-night-eye: 0.475;
+            --animation-zoom_in_down-translate_y-night-eye: 60px;
+            --animation-zoom_in_up-scale-night-eye: 0.475;
+            --animation-zoom_in_up-translate_y-night-eye: -60px;
+            --animation-zoom_in_left-scale-night-eye: 0.475;
+            --animation-zoom_in_left-translate_x-night-eye: 10px;
+            --animation-zoom_in_right-scale-night-eye: 0.475;
+            --animation-zoom_in_right-translate_x-night-eye: -10px;
+            --animation-zoom_out-scale-night-eye: 0.3;
+            --animation-zoom_out_down-scale-night-eye: 0.475;
+            --animation-zoom_out_down-translate_y-night-eye: -60px;
+            --animation-zoom_out_up-scale-night-eye: 0.475;
+            --animation-zoom_out_up-translate_y-night-eye: 60px;
+            --animation-zoom_out_left-scale-night-eye: 0.475;
+            --animation-zoom_out_left-translate_x-night-eye: 42px;
+            --animation-zoom_out_right-scale-night-eye: 0.475;
+            --animation-zoom_out_right-translate_x-night-eye: -42px;
+            --animation-slide_in_down-translate_y-night-eye: -100%;
+            --animation-slide_in_up-translate_y-night-eye: 100%;
+            --animation-slide_in_left-translate_x-night-eye: -100%;
+            --animation-slide_in_right-translate_x-night-eye: 100%;
+            --animation-slide_out_down-translate_y-night-eye: 100%;
+            --animation-slide_out_up-translate_y-night-eye: -100%;
+            --animation-slide_out_left-translate_x-night-eye: -100%;
+            --animation-slide_out_right-translate_x-night-eye: 100%;
+            --animation-custom_in-translate_x-night-eye: 0px;
+            --animation-custom_in-translate_y-night-eye: 0px;
+            --animation-custom_in-scale-night-eye: 1;
+            --animation-custom_in-rotate-night-eye: 0deg;
+            --animation-custom_in-opacity-night-eye: 0;
+            --animation-custom_in-translate_x-end-night-eye: 0;
+            --animation-custom_in-translate_y-end-night-eye: 0;
+            --animation-custom_in-scale-end-night-eye: 1;
+        }
+
+
+        .u-body {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .u-body {
+            color: var(--bg-contrast);
+            background-color: var(--bg-color);
+            --effect-scale: 1.1;
+        }
+
+        .u-body {
+            font-family: var(--text-font);
+        }
+
+        .u-body {
+            --animation-fade_in-opacity: 0;
+            --animation-fade_in_up-opacity: 0;
+            --animation-fade_in_left-opacity: 0;
+            --animation-fade_in_right-opacity: 0;
+            --animation-fade_in_down-opacity: 0;
+            --animation-fade_in_up_big-opacity: 0;
+            --animation-fade_in_left_big-opacity: 0;
+            --animation-fade_in_right_big-opacity: 0;
+            --animation-fade_in_down_big-opacity: 0;
+            --animation-fade_out-opacity: 0;
+            --animation-fade_out_up-opacity: 0;
+            --animation-fade_out_left-opacity: 0;
+            --animation-fade_out_right-opacity: 0;
+            --animation-fade_out_down-opacity: 0;
+            --animation-fade_out_up_big-opacity: 0;
+            --animation-fade_out_left_big-opacity: 0;
+            --animation-fade_out_right_big-opacity: 0;
+            --animation-fade_out_down_big-opacity: 0;
+            --animation-rotate_in-rotate: -200deg;
+            --animation-rotate_in_down_left-rotate: -45deg;
+            --animation-rotate_in_down_right-rotate: 45deg;
+            --animation-rotate_in_up_left-rotate: 45deg;
+            --animation-rotate_in_up_right-rotate: -90deg;
+            --animation-rotate_out-rotate: 200deg;
+            --animation-rotate_out_down_left-rotate: 45deg;
+            --animation-rotate_out_down_right-rotate: -45deg;
+            --animation-rotate_out_up_left-rotate: -45deg;
+            --animation-rotate_out_up_right-rotate: 90deg;
+            --animation-roll_in-rotate: -120deg;
+            --animation-roll_in-translate_x: -100%;
+            --animation-roll_out-rotate: 120deg;
+            --animation-roll_out-translate_x: 100%;
+            --animation-zoom_in-scale: 0.3;
+            --animation-zoom_in_down-scale: 0.475;
+            --animation-zoom_in_down-translate_y: 60px;
+            --animation-zoom_in_up-scale: 0.475;
+            --animation-zoom_in_up-translate_y: -60px;
+            --animation-zoom_in_left-scale: 0.475;
+            --animation-zoom_in_left-translate_x: 10px;
+            --animation-zoom_in_right-scale: 0.475;
+            --animation-zoom_in_right-translate_x: -10px;
+            --animation-zoom_out-scale: 0.3;
+            --animation-zoom_out_down-scale: 0.475;
+            --animation-zoom_out_down-translate_y: -60px;
+            --animation-zoom_out_up-scale: 0.475;
+            --animation-zoom_out_up-translate_y: 60px;
+            --animation-zoom_out_left-scale: 0.475;
+            --animation-zoom_out_left-translate_x: 42px;
+            --animation-zoom_out_right-scale: 0.475;
+            --animation-zoom_out_right-translate_x: -42px;
+            --animation-slide_in_down-translate_y: -100%;
+            --animation-slide_in_up-translate_y: 100%;
+            --animation-slide_in_left-translate_x: -100%;
+            --animation-slide_in_right-translate_x: 100%;
+            --animation-slide_out_down-translate_y: 100%;
+            --animation-slide_out_up-translate_y: -100%;
+            --animation-slide_out_left-translate_x: -100%;
+            --animation-slide_out_right-translate_x: 100%;
+            --animation-custom_in-translate_x: 0px;
+            --animation-custom_in-translate_y: 0px;
+            --animation-custom_in-scale: 1;
+            --animation-custom_in-rotate: 0deg;
+            --animation-custom_in-opacity: 0;
+            --animation-custom_in-translate_x-end: 0;
+            --animation-custom_in-translate_y-end: 0;
+            --animation-custom_in-scale-end: 1;
+        }
+
+        .u-body {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        style attribute {
+            font-size: 16px;
+        }
+
+        :root {
+            --bg-color: hsla(0, 0%, 75%, 1);
+            --text-color: hsla(0, 0%, 77%, 1);
+            --a-color: hsla(233, 60%, 82%, 1);
+            --a-visited-color: hsla(241, 60%, 75%, 1);
+            --a-hover-color: hsla(0, 0%, 83%, 1);
+            --input-border-color: hsla(0, 0%, 83%, 0.2);
+            --input-placeholder-color: hsla(195, 53%, 79%, 1);
+            --dialog-bg-color: hsla(0, 0%, 75%, 0.9500000000000001);
+            --bg-image: linear-gradient(hsla(0, 0%, 75%, 1), hsla(0, 0%, 75%, 1));
+            --bg-color-night-eye: hsla(0, 0%, 10%, 1);
+            --text-color-night-eye: hsla(0, 0%, 33%, 1);
+            --a-color-night-eye: hsla(233, 60%, 28%, 1);
+            --a-visited-color-night-eye: hsla(241, 60%, 55%, 1);
+            --a-hover-color-night-eye: hsla(0, 0%, 27%, 1);
+            --input-border-color-night-eye: hsla(0, 0%, 27%, 0.2);
+            --input-placeholder-color-night-eye: hsla(195, 53%, 31%, 1);
+            --dialog-bg-color-night-eye: hsla(0, 0%, 14%, 0.9500000000000001);
+            --bg-image-night-eye: linear-gradient(hsla(0, 0%, 10%, 1), hsla(0, 0%, 10%, 1));
+        }
+
+        injected stylesheet:host,
+        :root {
+            --rem: 16;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        html {
+            color: #bfbfbf !important;
+            background-image: none !important;
+            background: #1f1f1f !important;
+        }
+
+        [class*="-radius-"],
+        [class*="-radius-"]:before,
+        [class*="-radius-"] .u-background-effect,
+        [class*="-radius-"]:not(.u-hover-box)>.u-container-layout {
+            border-radius: var(--border-top-left-radius, var(--border-radius, 0)) var(--border-top-right-radius, var(--border-radius, 0)) var(--border-bottom-right-radius, var(--border-radius, 0)) var(--border-bottom-left-radius, var(--border-radius, 0)) !important;
+        }
+
+        [class*="-radius-"],
+        [class*="-radius-"]:before,
+        [class*="-radius-"] .u-background-effect,
+        [class*="-radius-"]:not(.u-hover-box)>.u-container-layout {
+            border-radius: var(--border-top-left-radius, var(--border-radius, 0)) var(--border-top-right-radius, var(--border-radius, 0)) var(--border-bottom-right-radius, var(--border-radius, 0)) var(--border-bottom-left-radius, var(--border-radius, 0)) !important;
+        }
+
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-y: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-via-position: ;
+            --tw-ordinal: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: hsla(0, 0%, 100%, 1);
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-brightness: ;
+            --tw-grayscale: ;
+            --tw-invert: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-saturate: ;
+            --tw-translate-x-night-eye: 0;
+            --tw-translate-y-night-eye: 0;
+            --tw-rotate-night-eye: 0;
+            --tw-skew-x-night-eye: 0;
+            --tw-skew-y-night-eye: 0;
+            --tw-scale-x-night-eye: 1;
+            --tw-scale-y-night-eye: 1;
+            --tw-ring-offset-color-night-eye: hsla(240, 8%, 12%, 1);
+            --tw-ring-color-night-eye: rgb(59 130 246 / 0.5);
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-y: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-via-position: ;
+            --tw-ordinal: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: hsla(0, 0%, 100%, 1);
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-brightness: ;
+            --tw-grayscale: ;
+            --tw-invert: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-saturate: ;
+            --tw-translate-x-night-eye: 0;
+            --tw-translate-y-night-eye: 0;
+            --tw-rotate-night-eye: 0;
+            --tw-skew-x-night-eye: 0;
+            --tw-skew-y-night-eye: 0;
+            --tw-scale-x-night-eye: 1;
+            --tw-scale-y-night-eye: 1;
+            --tw-ring-offset-color-night-eye: hsla(240, 8%, 12%, 1);
+            --tw-ring-color-night-eye: rgb(59 130 246 / 0.5);
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-y: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-via-position: ;
+            --tw-ordinal: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: hsla(0, 0%, 100%, 1);
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-brightness: ;
+            --tw-grayscale: ;
+            --tw-invert: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-saturate: ;
+            --tw-translate-x-night-eye: 0;
+            --tw-translate-y-night-eye: 0;
+            --tw-rotate-night-eye: 0;
+            --tw-skew-x-night-eye: 0;
+            --tw-skew-y-night-eye: 0;
+            --tw-scale-x-night-eye: 1;
+            --tw-scale-y-night-eye: 1;
+            --tw-ring-offset-color-night-eye: hsla(240, 8%, 12%, 1);
+            --tw-ring-color-night-eye: rgb(59 130 246 / 0.5);
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        *::-webkit-scrollbar-track {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        *::-webkit-scrollbar-track-piece {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+    </style>
 </head>
 
 <body style="color:rgb(0, 0, 0); ">
     <h1 style="color:#000000; text-align:center; font-family: 'Dela Gothic One', cursive;">G R O U P I E - T R A C K E R
     </h1>
     <!-- <div class="bandCard"> -->
-    <div class="bandImage">
+
+    <body class="u-body u-xl-mode" data-lang="en" data-new-gr-c-s-check-loaded="14.1136.0" data-gr-ext-installed="">
+        <section class="u-clearfix u-container-align-center u-section-1" id="sec-7bd8">
+            <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+                <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+                    <div class="u-layout">
+                        <div class="u-layout-row">
+                            <img>
+                            <div class="bandImage"
+                                class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-round u-radius-50 u-image-1"
+                                data-image-width="700" data-image-height="560">
+                                <image src="{{.Image}}" alt="{{.Name}}"></image>
+                                <!-- </div> -->
+                                <br>
+                                <!-- <h1 id="artistname">{{.Name}}</h1> -->
+                            </div>
+                            <div
+                                class="u-container-align-center u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
+                                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                                    <h2 class="u-align-center u-text u-text-default u-text-1">{{.Name}}</h2>
+                                    <p class="u-align-center u-text u-text-default u-text-2">Members:</p>
+                                    <ul class="u-align-center u-text u-text-default u-text-3">
+                                        <ul style="padding-left:8px;">
+                                            {{range .Members}}
+                                            <li>{{.}}</li>
+                                            {{end}}
+                                        </ul>
+                                        <li>
+                                            <div class="n">
+                                                <p
+                                                    style="position: relative;left:5%; font-size: 20px; display: inline-block;">
+                                                    <b>Creation date:</b> {{.CreationDate}} <br><br> <b>First album
+                                                        release:</b> {{.FirstAlbum}}
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <!-- <li>Tasty, fresh daily</li>
+                                <li>Best pizza in NYC</li>
+                                <li>Tasty, fresh daily</li>
+                                <li>Best pizza in NYC</li> -->
+                                    </ul>
+                                    <!-- <a href="https://nicepage.com/joomla-templates" class="u-active-black u-align-center u-border-2 u-border-active-black u-border-hover-black u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-active-white u-text-body-color u-text-hover-white u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">See Our Menu</a> -->
+                                    <div class="relations">
+                                        <div>
+                                            <h2 style="text-align: left;">Concerts:</h2>
+                                        </div>
+                                        <!-- <p style="text-align: left;"> -->
+                                        <ul style="text-align:left; text-indent: -4px;">
+                                            {{range $i, $v := .Relations}}
+                                            <li>{{$i}}: {{range $m := $v}}{{.}} {{end}}</li>
+                                            {{end}}
+                                        </ul>
+                                    </div>
+                                    <!-- <p class="u-align-center u-text u-text-4">Image from <a href="https://www.freepik.com" class="u-active-none u-border-1 u-border-active-palette-2-base u-border-grey-75 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-2" target="_blank" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Freepik</a> -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- <section class="u-backlink u-clearfix u-grey-80">
+              <a class="u-link" href="https://nicepage.com/html-templates" target="_blank">
+                <span>HTML Template</span>
+              </a>
+              <p class="u-text">
+                <span>created with</span>
+              </p>
+              <a class="u-link" href="https://nicepage.site" target="_blank">
+                <span>Website Builder</span>
+              </a>. 
+            </section> -->
+
+        <style>
+            .u-disable-duration * {
+                transition-duration: 0s !important;
+            }
+        </style>
+    </body>
+    <img>
+    <div class="bandImage"
+        class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-round u-radius-50 u-image-1"
+        data-image-width="700" data-image-height="560">
         <image src="{{.Image}}" alt="{{.Name}}"></image>
         <!-- </div> -->
         <br>
-        <h1 id="artistname">{{.Name}}</h1>
+        <!-- <h1 id="artistname">{{.Name}}</h1> -->
     </div>
-    <div class="memberList">
+    <div
+        class="u-container-align-center u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
+        <div class="u-container-layout u-valign-middle u-container-layout-2">
+            <h2 class="u-align-center u-text u-text-default u-text-1">{{.Name}}</h2>
+            <p class="u-align-center u-text u-text-default u-text-2">Members:</p>
+            <ul class="u-align-center u-text u-text-default u-text-3">
+                <ul style="padding-left:8px;">
+                    {{range .Members}}
+                    <li>{{.}}</li>
+                    {{end}}
+                </ul>
+                <li>
+                    <div class="n">
+                        <p style="position: relative;left:5%; font-size: 20px; display: inline-block;">
+                            <b>Creation date:</b> {{.CreationDate}} <br><br> <b>First album release:</b> {{.FirstAlbum}}
+                        </p>
+                    </div>
+                </li>
+                <!-- <li>Tasty, fresh daily</li>
+            <li>Best pizza in NYC</li>
+            <li>Tasty, fresh daily</li>
+            <li>Best pizza in NYC</li> -->
+            </ul>
+            <!-- <a href="https://nicepage.com/joomla-templates" class="u-active-black u-align-center u-border-2 u-border-active-black u-border-hover-black u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-black u-none u-radius-50 u-text-active-white u-text-body-color u-text-hover-white u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">See Our Menu</a> -->
+            <div class="relations">
+                <div>
+                    <h2 style="text-align: left;">Concerts:</h2>
+                </div>
+                <!-- <p style="text-align: left;"> -->
+                <ul style="text-align:left; text-indent: -4px;">
+                    {{range $i, $v := .Relations}}
+                    <li>{{$i}}: {{range $m := $v}}{{.}} {{end}}</li>
+                    {{end}}
+                </ul>
+            </div>
+            <!-- <p class="u-align-center u-text u-text-4">Image from <a href="https://www.freepik.com" class="u-active-none u-border-1 u-border-active-palette-2-base u-border-grey-75 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-2" target="_blank" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Freepik</a> -->
+            </p>
+        </div>
+    </div>
+    <!-- <div class="memberList">
         <h2>Members:</h2>
         <ul style="padding-left:8px;">
             {{range .Members}}
@@ -33,16 +871,17 @@
             <b>Creation date:</b> {{.CreationDate}} <br><br> <b>First album release:</b> {{.FirstAlbum}}
         </p>
     </div>
+    
     <div class="relations">
         <div>
             <h2 style="text-align: left;">Concerts:</h2>
         </div>
-        <!-- <p style="text-align: left;"> -->
+        <p style="text-align: left;">
         <ul style="text-align:left; text-indent: -4px;">
             {{range $i, $v := .Relations}}
             <li>{{$i}}: {{range $m := $v}}{{.}} {{end}}</li>
             {{end}}
         </ul>
-    </div>
+    </div> -->
 
 </body>
