@@ -20,24 +20,24 @@ func init() {
 }
 
 // type GroupieData struct {
-// 	Artists   string `json:"artists"`
+// 	artists   string `json:"artists"`
 // 	Locations string `json:"locations"`
 // 	Dates     string `json:"dates"`
 // 	Relation  string `json:"relation"`
 // }
 
-var groupieData []ArtistsAPI
+var groupieData []artistsAPI
 
 // var generalData []GroupieData
 
 type GroupieData struct {
-	Artists   string `json:"artists"`
+	artists   string `json:"artists"`
 	Locations string `json:"locations"`
 	Dates     string `json:"dates"`
 	Relation  string `json:"relation"`
 }
 
-type ArtistsAPI struct {
+type artistsAPI struct {
 	ID           int      `json:"id"`
 	Image        string   `json:"image"`
 	Name         string   `json:"name"`
@@ -56,12 +56,13 @@ type LocationsAPI struct {
 }
 
 func main() {
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.HandleFunc("/", groupieHandler)
 	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css/"))))
 	// http.HandleFunc("/groupie-tracker", processor)
 	http.HandleFunc("/aboutme.html", aboutMe)
 	// submit?value=2
-	http.HandleFunc("/artist", ArtistPage)
+	http.HandleFunc("/artist", artistPage)
 	// http.Handle("/pics/", http.FileServer(http.Dir("templates")))
 
 	// http.Handle("/css/", http.FileServer(http.Dir("templates")))
@@ -77,21 +78,20 @@ func main() {
 
 func groupieHandler(w http.ResponseWriter, r *http.Request) {
 	// Locate and Read JSON File
-
+	if r.URL.Path != "/" && r.URL.Path != "/aboutme.html" && r.URL.Path != "/artist" {
+		w.WriteHeader(http.StatusNotFound)
+		http.ServeFile(w, r, "template/404Error.html")
+	}
 	groupieData, err := GetData(w, r)
 	if err != nil {
 		// Handle the error
 		ErrorPage(w, r)
 		return
 	}
-	// fmt.Print(groupieData[0].Members)
-	// fmt.Print(groupieData[0].Name)
-	// fmt.Print(groupieData[0].Locations)
-	// fmt.Print(groupieData[0].Relations)
 
 	// Prepare Data For HTML
 	type DataView struct {
-		Groupie []ArtistsAPI
+		Groupie []artistsAPI
 	}
 	viewData := DataView{
 		Groupie: groupieData,
@@ -118,22 +118,7 @@ func aboutMe(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "aboutme.html")
 }
 
-// func Submit(w http.ResponseWriter, r *http.Request) {
-// 	StrNum := strings.TrimPrefix(r.URL.Path, "/submit?value=")
-
-// 	num, err := strconv.Atoi(StrNum)
-// 	if err == nil {
-// 		fmt.Printf("%T, %v", num, num)
-// 	}
-
-// 	if num < 1 || num > 52 {
-// 		w.WriteHeader(http.StatusNotFound)
-// 		http.ServeFile(w, r, "template/404Error.html")
-// 	}
-// 	http.ServeFile(w, r, "artistpage.html")
-// }
-
-func ArtistPage(w http.ResponseWriter, r *http.Request) {
+func artistPage(w http.ResponseWriter, r *http.Request) {
 	groupieData, err := GetData(w, r)
 	if err != nil {
 		// Handle the error
@@ -195,7 +180,7 @@ func GetRelations(id int, w http.ResponseWriter, r *http.Request) (string, error
 		ErrorPage(w, r)
 		// return
 	}
-	var groupieData []ArtistsAPI
+	var groupieData []artistsAPI
 	err = json.Unmarshal(data, &groupieData)
 	if err != nil {
 		fmt.Println("Error2: ", err)
@@ -209,7 +194,7 @@ func GetRelations(id int, w http.ResponseWriter, r *http.Request) (string, error
 	return groupieData[id-1].Relations, nil
 }
 
-func GetData(w http.ResponseWriter, r *http.Request) ([]ArtistsAPI, error) {
+func GetData(w http.ResponseWriter, r *http.Request) ([]artistsAPI, error) {
 	generalData, err := http.Get("https://groupietrackers.herokuapp.com/api/")
 
 	if err != nil {
@@ -218,21 +203,6 @@ func GetData(w http.ResponseWriter, r *http.Request) ([]ArtistsAPI, error) {
 		return nil, err
 	}
 	defer generalData.Body.Close()
-
-	// data, err := ioutil.ReadAll(generalData.Body)
-	// if err != nil {
-	// 	fmt.Println("Error1: ", err)
-	// 	ErrorPage(w, r)
-	// 	return nil, err
-	// }
-	// var GeneralData []GroupieData
-	// err = json.Unmarshal(data, &GeneralData)
-	// if err != nil {
-	// 	fmt.Println("Error2: ", err)
-	// 	ErrorPage(w, r)
-	// 	return nil, err
-	// }
-	// fmt.Println("\n", GeneralData)
 
 	fileData, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 
@@ -252,7 +222,7 @@ func GetData(w http.ResponseWriter, r *http.Request) ([]ArtistsAPI, error) {
 		return nil, err
 		// return
 	}
-	var groupieData []ArtistsAPI
+	var groupieData []artistsAPI
 	err = json.Unmarshal(data2, &groupieData)
 	if err != nil {
 		// fmt.Println("Error2: ", err)
@@ -260,7 +230,5 @@ func GetData(w http.ResponseWriter, r *http.Request) ([]ArtistsAPI, error) {
 		return nil, err
 		// return
 	}
-	// fmt.Print(groupieData[0].Members)""
-	// fmt.Print(groupieData[0].Locations)
 	return groupieData, nil
 }
