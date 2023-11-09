@@ -57,7 +57,7 @@ type LocationsAPI struct {
 
 func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
-	http.HandleFunc("/artist", groupieHandler)
+	http.HandleFunc("/", groupieHandler)
 	// http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css/"))))
 	// http.HandleFunc("/groupie-tracker", processor)
 	http.HandleFunc("/aboutme.html", aboutMe)
@@ -73,12 +73,12 @@ func main() {
 	fmt.Print("Listening and serving on: ")
 	fmt.Printf("%+v", u)
 	fmt.Println()
-	log.Fatal(http.ListenAndServe(":2003/artist", nil))
+	log.Fatal(http.ListenAndServe(":2003", nil))
 }
 
 func groupieHandler(w http.ResponseWriter, r *http.Request) {
 	// Locate and Read JSON File
-	if r.URL.Path != "/artist" && r.URL.Path != "/aboutme.html" {
+	if r.URL.Path != "/" && r.URL.Path != "/aboutme.html" && r.URL.Path != "/artists/"{
 		w.WriteHeader(http.StatusNotFound)
 		http.ServeFile(w, r, "template/404Error.html")
 	}

@@ -81,7 +81,7 @@
             /* color: orange;
         } */
 
-    @media only screen and (max-width: 2100px) {
+    @media only screen and (max-width: 2500px) {
         .gtitle {
             font-size: 3.5rem;
             /* color: blue; */
