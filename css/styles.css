@@ -226,10 +226,6 @@
         margin-bottom: 20px;
     }
 
-    * {
-        outline: 2px solid red;
-    }
-
     .bandCard {
         border: 1px solid black;
         margin: 1rem;
