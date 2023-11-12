@@ -184,7 +184,7 @@ func GetRelations(id int, w http.ResponseWriter, r *http.Request) (string, error
 	err = json.Unmarshal(data, &groupieData)
 	if err != nil {
 		fmt.Println("Error2: ", err)
-		ErrorPage(w, r)
+		// ErrorPage(w, r)
 		// return  err
 		// return
 	}

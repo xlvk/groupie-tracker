@@ -86,7 +86,7 @@ html {
     font-family: "Montserrat", sans-serif;
     display: inline-block;
     text-transform: uppercase;
-    color: #ff005a;
+    color: #ffffff;
     text-decoration: none;
     border: 2px solid;
     background: transparent;
@@ -103,4 +103,8 @@ html {
   .notfound {
     line-height: 1.4;
     text-align: center;
+  }
+
+  .notfound a:hover {
+    color: rgb(0, 106, 255);
   }
