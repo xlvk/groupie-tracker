@@ -1,158 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-    <title>ascii-art-web</title>
-  </head>
+<html>
 
-  <body>
+<head>
+    <title>Groupie Data</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
     <header>
-      <div class="gtitle">groupie-tracker</div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Artists</a></li>
-          <li><a href="#">Locations</a></li>
-          <li><a href="#">Dates</a></li>
-        </ul>
-      </nav>
-      <style>
-        @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap");
-
-        body,
-        html {
-          margin: 0;
-        }
-
-        body {
-          background-color: #030005;
-        }
-
-        body::-webkit-scrollbar {
-          display: none;
-        }
-
-        header {
-          height: 30vh;
-          width: 100vw;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #030005;
-        }
-
-        .gtitle {
-          font-size: 3.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 30vh;
-          width: 100vw;
-          font-family: "IBM Plex Mono", monospace, sans-serif;
-          background: linear-gradient(
-            to right,
-            #c656a1 20%,
-            #d07ce1 40%,
-            #8400ff 60%,
-            #e72a2a 80%
-          );
-          background-size: 50vh 50vh;
-          color: #000;
-          background-clip: text;
-          animation: tshine 0.5s linear infinite;
-
-          @keyframes tshine {
-            to {
-              background-position: 80% center;
-            }
-          }
-
-          text-fill-color: transparent;
-          -webkit-text-fill-color: transparent;
-          -webkit-background-clip: text;
-        }
-
-        .radio-input {
-          display: flex;
-          flex-direction: row;
-          font-family: "IBM Plex Mono", monospace, sans-serif;
-          font-size: 16px;
-          font-weight: 600;
-          color: white;
-        }
-
-        .radio-input input[type="radio"] {
-          display: none;
-        }
-
-        .radio-input label {
-          display: flex;
-          align-items: center;
-          padding: 10px;
-          border: 1px solid #ccc;
-          background-color: #212121;
-          border-radius: 5px;
-          margin-right: 12px;
-          cursor: pointer;
-          position: relative;
-          transition: all 0.3s ease-in-out;
-        }
-
-        .radio-input label:before {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translate(-50%, -50%);
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background-color: #fff;
-          border: 2px solid #ccc;
-          transition: all 0.3s ease-in-out;
-        }
-
-        .radio-input input[type="radio"]:checked + label:before {
-          background-color: pink;
-          top: 0;
-        }
-
-        .radio-input input[type="radio"]:checked + label {
-          background-color: rgb(1, 4, 166);
-          color: #fff;
-          border-color: rgb(129, 235, 129);
-          animation: radio-translate 0.5s ease-in-out;
-        }
-
-        @keyframes radio-translate {
-          0% {
-            transform: translateX(0);
-          }
-
-          50% {
-            transform: translateY(-10px);
-          }
-
-          100% {
-            transform: translateX(0);
-          }
-        }
-
-        main,
-        form {
-          margin-top: 0.5em;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 3em;
-        }
-      </style>
+        <div class="gtitle" style="text-align:center; font-family: 'Dela Gothic One', cursive;">Groupie Data</div>
+        <div class="abtme"><a href="aboutme.html">About</a></div>
     </header>
-    <main></main>
-  </body>
+    <main>
+
+        <form action="/id=" method="POST">
+            <div id="content" class="grid-container">{{range .Groupie}}
+                <a href="/artist?id={{.ID}}" name="artist" value="{{.ID}}" method="POST" alt="{{.Name}}">
+                    <div class="box"
+                        style="background-image: url('{{ .Image}}'); background-repeat: no-repeat; background-size: cover;"
+                        alt="" class="expanded-width image image-default image-2" data-image-width="1380"
+                        data-image-height="920">
+                        <div class="name slay">
+                            <h3 class="text text-5">{{ .Name}}</h3>
+                        </div>
+                </a>
+            </div>
+            {{end}}
+            </div>
+    </main>
+</body>
+
 </html>
+
+<!-- <table>
+            <div>
+                <tr>
+                    <th>Artists</th>
+                    <th>Location</th>
+                    <th>Dates</th>
+                    <th>Relation</th>
+                </tr>
+                {{range .Groupie}}
+                <tr>
+                    <td>{{.Name}}</td>
+                    <td>{{.Locations}}</td>
+                    <td>{{.CreationDate}}</td>
+                    <td>{{.Relations}}</td>
+                </tr>
+                {{end}}
+            </div>
+
+        </table> -->

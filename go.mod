@@ -1,3 +1,3 @@
-module groupie
+module lilGroupie
 
 go 1.18
