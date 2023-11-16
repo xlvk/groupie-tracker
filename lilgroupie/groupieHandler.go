@@ -9,14 +9,14 @@ import (
 func GroupieHandler(w http.ResponseWriter, r *http.Request) {
 	// Locate and Read JSON File
 	if r.URL.Path != "/" && r.URL.Path != "/aboutme.html" && r.URL.Path != "/artists/" {
-		w.WriteHeader(http.StatusNotFound)
-		http.ServeFile(w, r, "template/404Error.html")
+		ErrorPage(w, r, 404)
+		return
 	}
 	groupieData, err := GetData(w, r)
 	if err != nil {
 		// Handle the error
 		fmt.Println(1)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 
@@ -36,7 +36,7 @@ func GroupieHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error3: ", err)
 		fmt.Println(2)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 

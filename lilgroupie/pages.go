@@ -9,8 +9,8 @@ import (
 
 func AboutMe(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/aboutme.html" {
-		w.WriteHeader(http.StatusNotFound)
-		http.ServeFile(w, r, "template/404Error.html")
+		ErrorPage(w, r, 404)
+		return
 
 	}
 	http.ServeFile(w, r, "template/aboutme.html")
@@ -21,15 +21,14 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		// Handle the error
 		fmt.Println(22)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 
 	sid := r.URL.Query().Get("id")
 	id, err := strconv.Atoi(sid)
 	if err != nil || id <= 0 || id > len(groupieData) {
-		w.WriteHeader(http.StatusNotFound)
-		http.ServeFile(w, r, "template/404Error.html")
+		ErrorPage(w, r, 404)
 		// http.Redirect(w, r, "/400", http.StatusSeeOther)
 		return
 	}
@@ -51,7 +50,7 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	if err2 != nil {
 		// Handle the error
 		fmt.Println(23)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 
@@ -59,7 +58,7 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	if err2 != nil {
 		// Handle the error
 		fmt.Println(24)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 
@@ -67,7 +66,7 @@ func ArtistPage(w http.ResponseWriter, r *http.Request) {
 	if err3 != nil {
 		// Handle the error
 		fmt.Println(25)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 

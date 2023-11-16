@@ -9,10 +9,12 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
 </head>
-
-<body style="color:White; ">
+<header>
     <h1 style="color:#ffffff; text-align:center; font-family: 'Dela Gothic One', cursive;">G R O U P I E - T R A C K E R
     </h1>
+</header>
+<body style="color:White; ">
+    
     <div class="bandCard">
         <div class="bandImage">
             <image src="{{.Image}}" alt="{{.Name}}"></image>
@@ -39,15 +41,25 @@
             </ul>
         </div>
     </div>
+
     <div class="relations">
-        <div>
-            <h2 style="text-align: left;">Concerts:</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="front-content">
+                    <p>Concerts.</p>
+                </div>
+                <div class="content">
+                    <p class="heading">Concerts:</p>
+                    <ul style="text-align:left; text-indent: -4px;">
+                        {{range $i, $v := .Relations}}
+                        <li>{{$i}}: {{range $m := $v}}{{.}} {{end}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+            </div>
         </div>
-        <!-- <p style="text-align: left;"> -->
-        <ul style="text-align:left; text-indent: -4px;">
-            {{range $i, $v := .Relations}}
-            <li>{{$i}}: {{range $m := $v}}{{.}} {{end}}</li>
-            {{end}}
-        </ul>
+    </div>
+    <div class="notfound">
+        <a href="/" style="margin-top: 30px;">Homepage</a>
     </div>
 </body>

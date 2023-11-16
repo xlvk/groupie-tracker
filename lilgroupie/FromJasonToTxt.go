@@ -24,7 +24,7 @@ func FromJasonToTxt(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error fetching JSON data:", err)
 		fmt.Println(3)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 	defer resp.Body.Close()
@@ -34,7 +34,7 @@ func FromJasonToTxt(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error reading response body:", err)
 		fmt.Println(4)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 
@@ -46,7 +46,7 @@ func FromJasonToTxt(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error unmarshaling JSON data:", err)
 		fmt.Println(5)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 
@@ -55,7 +55,7 @@ func FromJasonToTxt(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error converting to JSON:", err)
 		fmt.Println(6)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 
@@ -64,7 +64,7 @@ func FromJasonToTxt(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error creating JSON file:", err)
 		fmt.Println(7)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 	defer jsonFile.Close()
@@ -73,7 +73,7 @@ func FromJasonToTxt(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error writing JSON data:", err)
 		fmt.Println(8)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return
 	}
 

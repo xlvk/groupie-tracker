@@ -14,7 +14,7 @@ func GetData(w http.ResponseWriter, r *http.Request) ([]artistsAPI, error) {
 	if err != nil {
 		fmt.Print(err.Error())
 		fmt.Println(9)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 		return nil, err
 	}
 	// fmt.Println(generalData)
@@ -60,14 +60,14 @@ func GetRelations(id int, w http.ResponseWriter, r *http.Request) (interface{}, 
 	if err != nil {
 		fmt.Print(err.Error())
 		fmt.Println(13)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 	}
 	defer fileData.Body.Close()
 	data, err := ioutil.ReadAll(fileData.Body)
 	if err != nil {
 		fmt.Println("Error1: ", err)
 		fmt.Println(14)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 	}
 
 	var groupieData index1
@@ -89,7 +89,7 @@ func GetLocations(id int, w http.ResponseWriter, r *http.Request) ([]string, err
 	if err != nil {
 		fmt.Print(err.Error())
 		fmt.Println(16)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 	}
 	defer fileData.Body.Close()
 	data, err := ioutil.ReadAll(fileData.Body)
@@ -97,7 +97,7 @@ func GetLocations(id int, w http.ResponseWriter, r *http.Request) ([]string, err
 		fmt.Println("Error3: ", err)
 		fmt.Println(17)
 
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 	}
 	var groupieData []LocationsAPI
 	err = json.Unmarshal(data, &groupieData)
@@ -116,14 +116,14 @@ func GetDates(id int, w http.ResponseWriter, r *http.Request) ([]string, error) 
 		fmt.Print(err.Error())
 		fmt.Println(19)
 
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 	}
 	defer fileData.Body.Close()
 	data, err := ioutil.ReadAll(fileData.Body)
 	if err != nil {
 		fmt.Println("Error5: ", err)
 		fmt.Println(20)
-		ErrorPage(w, r)
+		ErrorPage(w, r, 500)
 	}
 	var groupieData []DateAPI
 	err = json.Unmarshal(data, &groupieData)
