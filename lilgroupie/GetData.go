@@ -80,7 +80,7 @@ func GetRelations(id int, w http.ResponseWriter, r *http.Request) (interface{}, 
 	fmt.Print(len(groupieData.Index))
 	
 	
-	return groupieData.Index[0].Relations, nil
+	return groupieData.Index[id-1].Relations, nil
 }
 
 func GetLocations(id int, w http.ResponseWriter, r *http.Request) ([]string, error) {
@@ -110,7 +110,7 @@ func GetLocations(id int, w http.ResponseWriter, r *http.Request) ([]string, err
 }
 
 func GetDates(id int, w http.ResponseWriter, r *http.Request) ([]string, error) {
-	fileData, err := http.Get("https://groupietrackers.herokuapp.com/api/locations")
+	fileData, err := http.Get("https://groupietrackers.herokuapp.com/api/dates")
 
 	if err != nil {
 		fmt.Print(err.Error())
